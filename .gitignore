@@ -11,8 +11,13 @@ Cargo.lock
 **/*.rs.bk
 
 ### C ignores
-**/*.a
 **/*.o
 **/*.obj
 **/*.exe
 **/*.lib
+**/*.dll
+
+### General ignores
+**/bin
+**/lib
+**/build
