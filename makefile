@@ -9,10 +9,8 @@ all: $(PROJECT) c_app
 
 .PHONY: c_app
 c_app: $(BIN)
-	x86_64-w64-mingw32-gcc $@/main.o -o bin/$@.exe
-
-%.o : %.c
-	x86_64-w64-mingw32-gcc -c $@ -o $<
+	make -C $@
+	mv $@/$@.exe ./bin/$@.exe
 
 $(PROJECT): $(LIB)
 	cargo build --release --target "x86_64-pc-windows-gnu"
@@ -26,8 +24,8 @@ $(LIB):
 
 .PHONY: extra-clean
 clean:
-	rm -fr ./lib/* ./bin/* ./target/*
+	rm -fr ./lib/* ./bin/* ./target/* `find . -name "*.o*"`
 
 .PHONY: extra-clean
 extra-clean:
-	rm -fr ./lib ./bin ./target ./Cargo.lock
+	rm -fr ./lib ./bin ./target ./Cargo.lock  `find . -name "*.o"`

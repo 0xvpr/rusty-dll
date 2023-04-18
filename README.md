@@ -10,10 +10,20 @@ target the 64 bit Windows platform.
 - [Instructions](#instructions)
 
 ## Purpose
-[ TODO ]
+To teach myself Rust and perform tasks that I already perform in C with the Rust  
+API and build system tools.
 
 ## Description
 [ TODO ]
 
 ## Instructions
-[ TODO ]
+Requires
+- rust
+- rustup
+- cargo
+- mingw32
+
+```bash
+rustup target add x86_64-pc-windows-gnu
+make
+```
